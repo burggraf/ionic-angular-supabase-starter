@@ -23,6 +23,9 @@ export class LoginPage implements OnInit {
   }
 
   async ngOnInit() {
+    this.supabaseService.user.subscribe((user: User) => {
+      this.user = user;
+    });  
   }
 
   async signUpWithEmail() {

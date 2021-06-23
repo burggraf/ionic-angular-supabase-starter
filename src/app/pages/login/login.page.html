@@ -59,7 +59,7 @@
       </div>
 
       <div>
-        <strong>OR Sign in with provider:</strong>
+        <strong>Sign in with provider:</strong>
       </div>
       <div>
         &nbsp;
@@ -112,7 +112,7 @@
 
   <div class="ion-padding ion-text-center" *ngIf="user">
     <br>User: &lt;{{ user.email }}&gt;<br><br>
-    <ion-button strong (click)="signout()" expand="block" [disabled]="!user">Sign Out</ion-button>
+    <ion-button strong (click)="signOut()" expand="block" [disabled]="!user">Sign Out</ion-button>
   </div>
 
 </div>
