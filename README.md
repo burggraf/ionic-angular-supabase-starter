@@ -1,0 +1,1 @@
+# ionic-angular-supabase-starter
