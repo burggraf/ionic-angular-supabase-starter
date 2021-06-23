@@ -9,21 +9,18 @@
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+              <ion-label><strong>{{ p.title }}</strong></ion-label>
             </ion-item>
             <ion-item *ngIf="user" (click)="signOut()" lines="none" detail="false">
               <ion-icon slot="start" [ios]="'log-out-outline'" [md]="'log-out-sharp'"></ion-icon>
-              <ion-label>Sign Out</ion-label>
+              <ion-label><strong>Sign Out</strong></ion-label>
             </ion-item>
   
             <ion-item *ngIf="!user" routerDirection="root" routerLink="login" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="'log-in-outline'" [md]="'log-in-sharp'"></ion-icon>
-              <ion-label>Sign In</ion-label>
+              <ion-label><strong>Sign In</strong></ion-label>
             </ion-item>
           </ion-menu-toggle>
-
-
-
 
         </ion-list>
 
