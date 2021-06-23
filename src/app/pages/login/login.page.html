@@ -1,0 +1,122 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="box-400 ion-text-center">
+
+    <div id="container" class="ion-padding" *ngIf="!user">
+  
+      <ion-item lines="none">
+        <h5><b>Email</b></h5>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-input [(ngModel)]="email" type="email" placeholder="email@host.com"></ion-input>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <h5><b>Password</b></h5>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="password" type="password" placeholder="password"></ion-input>
+      </ion-item>
+      
+        <ion-button strong 
+        color="primary" 
+        (click)="signInWithEmail()" 
+        expand="block">
+        <ion-icon name="log-in" size="large" slot="start"></ion-icon>
+        Sign in with Email</ion-button>
+
+        <ion-button strong 
+        color="primary" 
+        (click)="signUpWithEmail()" 
+        expand="block">
+        <ion-icon name="mail" size="large" slot="start"></ion-icon>
+        Register with Email</ion-button>
+
+        <ion-button strong 
+        color="primary" 
+        (click)="signInWithMagicLink()" 
+        expand="block">
+        <ion-icon name="color-wand" size="large" slot="start"></ion-icon>
+        Sign in with Magic Link</ion-button>
+
+
+      <ion-item lines="none" (click)="resetPassword()">
+        <ion-label class="ion-text-center" style="font-weight: bold; text-decoration: underline;">Reset Password</ion-label>
+      </ion-item>
+    
+      <div>
+        &nbsp;
+      </div>
+
+      <div>
+        <strong>OR Sign in with provider:</strong>
+      </div>
+      <div>
+        &nbsp;
+      </div>
+      <div>
+        <ion-button (click)="signInWithProvider('google')">
+          <ion-icon size="large" name="logo-google"></ion-icon>
+        </ion-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="signInWithProvider('facebook')">
+          <ion-icon size="large" name="logo-facebook"></ion-icon>
+        </ion-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="signInWithProvider('github')">
+          <ion-icon size="large" name="logo-github"></ion-icon>
+        </ion-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="signInWithProvider('twitter')">
+          <ion-icon size="large" name="logo-twitter"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div>
+        &nbsp;
+      </div>
+
+      <div>
+        <ion-button (click)="signInWithProvider('bitbucket')">
+          <ion-icon size="large" name="logo-bitbucket"></ion-icon>
+        </ion-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="signInWithProvider('gitlab')">
+          <ion-icon size="large" name="logo-gitlab"></ion-icon>
+        </ion-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="signInWithProvider('apple')">
+          <ion-icon size="large" name="logo-apple"></ion-icon>
+        </ion-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="signInWithProvider('azure')">
+          <ion-icon size="large" name="logo-microsoft"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div>
+        &nbsp;
+      </div>
+  
+  </div>
+
+  <div class="ion-padding ion-text-center" *ngIf="user">
+    <br>User: &lt;{{ user.email }}&gt;<br><br>
+    <ion-button strong (click)="signout()" expand="block" [disabled]="!user">Sign Out</ion-button>
+  </div>
+
+</div>
+
+
+
+</ion-content>
