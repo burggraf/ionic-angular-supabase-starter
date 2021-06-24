@@ -14,22 +14,25 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid class="ion-padding box-400">
-    <ion-row>
-      <ion-col class="ion-text-center"><strong>Customer List [{{ people?.length }}]</strong></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <br/>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col><strong>First Name</strong></ion-col>
-      <ion-col><strong>Last Name</strong></ion-col>
-    </ion-row>
-    <ion-row *ngFor="let person of people; let i = index;" [routerLink]="'/person/'+person.id">
-      <ion-col>{{ person.first_name }}</ion-col>
-      <ion-col>{{ person.last_name }}</ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item color="dark">
+        <ion-avatar>
+          <img [src]="'https://robohash.org/voluptateoditperspiciatis.png?size=50x50&set=set1'">
+        </ion-avatar>
+        <ion-label><strong>Customer [{{ people?.length }}]</strong></ion-label>
+        <ion-label><b>City, State</b></ion-label>
+      </ion-item>
+      <ion-item *ngFor="let person of people; let i = index;" [routerLink]="'/person/'+person.id">
+        <ion-avatar>
+          <img [src]="person.avatar">
+        </ion-avatar>
+        <ion-label><b>{{ person.first_name }} {{ person.last_name }}</b></ion-label>
+        <ion-label><b>{{ person.city }}, {{ person.state }}</b></ion-label>
+      </ion-item>
+  
+    </ion-list>
+  </div>
+
+
 </ion-content>

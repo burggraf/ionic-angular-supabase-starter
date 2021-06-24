@@ -102,15 +102,18 @@ export class SupabaseService {
   public getPeople = async () => {
     let { data: people, error } = await supabase
     .from('people')
-    .select('id, last_name, first_name');
+    .select('id, last_name, first_name, avatar, city, state')
+    .order('last_name')
+    .order('first_name');
     return { people, error};
   }
 
   public getPerson = async (id: string) => {
-    let { data: person, error } = await supabase
+    let { data: people, error } = await supabase
     .from('people')
     .select('*')
     .eq('id', id);
+    const person = people[0];
     return { person, error};
   }
 
