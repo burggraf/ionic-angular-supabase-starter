@@ -14,6 +14,11 @@ CREATE TABLE IF NOT EXISTS people (
 	longitude FLOAT,
 	created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+ALTER TABLE public.people ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "delete requires authentication" ON public.people FOR DELETE USING ((auth.role() <> 'anon'::text));
+CREATE POLICY "editing requires authentication" ON public.people FOR INSERT WITH CHECK ((auth.role() <> 'anon'::text));
+CREATE POLICY "update requires authentication" ON public.people FOR UPDATE WITH CHECK ((auth.role() <> 'anon'::text));
+CREATE POLICY "view anonymous" ON public.people FOR SELECT USING (true);
 insert into people (id, first_name, last_name, address, city, state, phone, postal_code, email, web_page, avatar, latitude, longitude, created) values 
 ('d7030980-61d8-400f-aa29-5c64d49d0c95', 'Dorey', 'Strephan', '7606 Meadow Ridge Park', 'Houston', 'TX', '713-391-3829', '77206', 'dstrephan0@opera.com', 'https://disqus.com/lacinia/eget/tincidunt/eget.jpg', 'https://robohash.org/rerumidexpedita.png?size=50x50&set=set1', 29.834, -95.4342, '2021-06-13 12:23:01'),
 ('567f0090-6820-4562-af6d-9620203e81a1', 'Isis', 'Andrysiak', '056 Mallory Alley', 'Tallahassee', 'FL', '850-853-1998', '32309', 'iandrysiak1@google.pl', 'https://dedecms.com/proin/interdum/mauris.aspx', 'https://robohash.org/omnisinimpedit.png?size=50x50&set=set1', 30.5422, -84.1413, '2021-03-22 17:06:57'),
@@ -116,3 +121,5 @@ insert into people (id, first_name, last_name, address, city, state, phone, post
 ('4c5d9d5c-d41e-408e-834d-3f8eb8e95947', 'Cicely', 'Tortice', '78 Continental Plaza', 'Seattle', 'WA', '253-908-9836', '98121', 'ctortice2q@gov.uk', 'http://salon.com/sit/amet.jsp', 'https://robohash.org/delenitiipsaomnis.png?size=50x50&set=set1', 47.6151, -122.3447, '2020-12-02 16:22:58'),
 ('2470fd75-041d-4632-b18e-046b57b977b4', 'Winny', 'Oboy', '9 Transport Point', 'Erie', 'PA', '814-214-3806', '16510', 'woboy2r@i2i.jp', 'http://fda.gov/turpis/enim/blandit.aspx', 'https://robohash.org/optioquodolorem.png?size=50x50&set=set1', 42.1087, -79.9535, '2020-11-05 20:08:01'),
 ('4971cb3c-8299-4be4-9194-1ac24e0413d7', 'Happy', 'Meeland', '53158 Bellgrove Point', 'Houston', 'TX', '713-499-2766', '77299', 'hmeeland2s@github.com', 'https://comcast.net/neque/vestibulum.aspx', 'https://robohash.org/maioresaadipisci.png?size=50x50&set=set1', 29.834, -95.4342, '2020-11-18 10:36:05');
+
+

@@ -6,6 +6,11 @@ CREATE TABLE IF NOT EXISTS cars (
 	car_model TEXT,
 	vin TEXT
 );
+ALTER TABLE public.cars ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "delete requires authentication" ON public.cars FOR DELETE USING ((auth.role() <> 'anon'::text));
+CREATE POLICY "editing requires authentication" ON public.cars FOR INSERT WITH CHECK ((auth.role() <> 'anon'::text));
+CREATE POLICY "update requires authentication" ON public.cars FOR UPDATE WITH CHECK ((auth.role() <> 'anon'::text));
+CREATE POLICY "view anonymous" ON public.cars FOR SELECT USING (true);
 insert into cars (id, owner_id, model_year, car_make, car_model, vin) values 
 ('dd67e750-4e57-4a88-ae4f-86682b1ea4ba', 'd7030980-61d8-400f-aa29-5c64d49d0c95', 2001, 'Chevrolet', 'Astro', 'TRUUT28N151813391'),
 ('d2eb0c51-2ab3-4652-85ec-1032fea9f2c9', '567f0090-6820-4562-af6d-9620203e81a1', 1994, 'Volvo', '960', 'W04GX5GV3B1154170'),
