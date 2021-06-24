@@ -1,18 +1,23 @@
-import { ProviderAst } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { 
   createClient, 
-  RealtimeSubscription, 
   SupabaseClient,
   User,
-  UserCredentials,
   Provider
 } from '@supabase/supabase-js';
 import { BehaviorSubject } from 'rxjs';
 
-
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNDQ1OTM4OSwiZXhwIjoxOTQwMDM1Mzg5fQ.O81aW1V7NXqfTcq75P4uYL8P9g_sGUQl40qVlj4iijA';
+/************************************************************
+  Enter your Supabase Key and Supabase URL below
+  1. go to https://supabase.io, 
+  2. log into your project
+  3. click "settings" on the left (at the bottom)
+  4. click "API"
+  5. copy "URL" to SUPABASE_URL below
+  6. copy your "API Key" (anon public) to SUPABASE_KEY below
+*************************************************************/
 const SUPABASE_URL = 'https://bsrnilszwqfwkgyfozkz.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNDQ1OTM4OSwiZXhwIjoxOTQwMDM1Mzg5fQ.O81aW1V7NXqfTcq75P4uYL8P9g_sGUQl40qVlj4iijA';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 @Injectable({
@@ -21,8 +26,6 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 export class SupabaseService {
   private supabase: SupabaseClient;
   public user = new BehaviorSubject<User>(null);
-
-  // private subscription: RealtimeSubscription;
 
   constructor()
   { 
@@ -38,7 +41,7 @@ export class SupabaseService {
     });
   }
 
-  loadUser() {
+  private loadUser() {
     const user = this.supabase.auth.user();
     if (user) {
       this.user.next(user);
@@ -60,7 +63,6 @@ export class SupabaseService {
     });
     return { user, session, error };        
   }
-
 
   public signInWithProvider = async (provider: Provider) => {
     const { user, session, error } = await this.supabase.auth.signIn({
