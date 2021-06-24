@@ -41,6 +41,8 @@ export class SupabaseService {
     });
   }
 
+  // ************** auth ****************
+
   private loadUser() {
     const user = this.supabase.auth.user();
     if (user) {
@@ -99,6 +101,8 @@ export class SupabaseService {
     return { error };
   }
 
+  // ************** data ****************
+
   public getPeople = async () => {
     let { data: people, error } = await supabase
     .from('people')
@@ -116,5 +120,23 @@ export class SupabaseService {
     const person = people[0];
     return { person, error};
   }
+
+  public getCars = async (owner_id: string) => {
+    let { data: cars, error } = await supabase
+    .from('cars')
+    .select('*')
+    .eq('owner_id', owner_id);
+    return { cars, error};
+  }
+
+  public getCar = async (id: string) => {
+    let { data: cars, error } = await supabase
+    .from('cars')
+    .select('*')
+    .eq('id', id);
+    const car = cars[0];
+    return { car, error};
+  }
+
 
 }

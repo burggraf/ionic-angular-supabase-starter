@@ -20,7 +20,7 @@
         <ion-avatar>
           <img [src]="'https://robohash.org/voluptateoditperspiciatis.png?size=50x50&set=set1'">
         </ion-avatar>
-        <ion-label><strong>Customer [{{ people?.length }}]</strong></ion-label>
+        <ion-label><b>Customer [{{ people?.length }}]</b></ion-label>
         <ion-label><b>City, State</b></ion-label>
       </ion-item>
       <ion-item *ngFor="let person of people; let i = index;" [routerLink]="'/person/'+person.id">

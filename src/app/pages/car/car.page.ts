@@ -3,14 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SupabaseService } from 'src/app/services/supabase.service';
 
 @Component({
-  selector: 'app-person',
-  templateUrl: './person.page.html',
-  styleUrls: ['./person.page.scss'],
+  selector: 'app-car',
+  templateUrl: './car.page.html',
+  styleUrls: ['./car.page.scss'],
 })
-export class PersonPage implements OnInit {
+export class CarPage implements OnInit {
   private id: string;
-  public person: any;
-  public cars: any[];
+  public car: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,21 +19,15 @@ export class PersonPage implements OnInit {
 
   async ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log('id', this.id);
     if (!this.id || this.id.length === 0) {
       this.router.navigateByUrl('/people');
     }
-    console.log('id', this.id);
-    const { person, error } = await this.supabaseService.getPerson(this.id);
+    const { car, error } = await this.supabaseService.getCar(this.id);
     if (!error) {
-      this.person = person;
-      const { cars, error } = await this.supabaseService.getCars(this.person.id);
-      if (!error) {
-        this.cars = cars;
-      } else {
-        console.error('getCars error', error);
-      }
+      this.car = car;
     } else {
-      console.error('getPerson error', error);
+      console.error('getCar error', error);
     }
   }
 
