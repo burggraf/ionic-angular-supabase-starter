@@ -98,4 +98,20 @@ export class SupabaseService {
     }
     return { error };
   }
+
+  public getPeople = async () => {
+    let { data: people, error } = await supabase
+    .from('people')
+    .select('id, last_name, first_name');
+    return { people, error};
+  }
+
+  public getPerson = async (id: string) => {
+    let { data: person, error } = await supabase
+    .from('people')
+    .select('*')
+    .eq('id', id);
+    return { person, error};
+  }
+
 }

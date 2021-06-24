@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Customers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Customers</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid class="ion-padding box-400">
+    <ion-row>
+      <ion-col class="ion-text-center"><strong>Customer List [{{ people?.length }}]</strong></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <br/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><strong>First Name</strong></ion-col>
+      <ion-col><strong>Last Name</strong></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let person of people; let i = index;" [routerLink]="'/person/'+person.id">
+      <ion-col>{{ person.first_name }}</ion-col>
+      <ion-col>{{ person.last_name }}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

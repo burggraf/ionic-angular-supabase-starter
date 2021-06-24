@@ -13,7 +13,9 @@ export class AppComponent {
 
   public appPages = [
 
-    { title: 'Home', url: 'home', icon: 'home' }
+    { title: 'Home', url: 'home', icon: 'home' },
+    { title: 'Customers', url: 'people', icon: 'people' },
+
   ];
 
   constructor(private supabaseService: SupabaseService, private router: Router) {
