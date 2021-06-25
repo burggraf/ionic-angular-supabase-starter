@@ -3,8 +3,8 @@
 [Live Demo](https://ionic-angular-supabase-starter.vercel.app/)
 
 ## Stack:
-- Ionic 5.6.10
-- Angular 12.0.1
+- [Ionic 5.6.10](https://ionicframework.com/)
+- [Angular 12.0.1](https://angular.io/)
 - [Supabase](https://supabase.io)
 
 ## Features:

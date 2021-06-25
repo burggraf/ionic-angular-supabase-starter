@@ -23,15 +23,26 @@ export class AppComponent {
       this.user = user;
     });
 
+    /**
+     * <SITE_URL>#access_token=x&refresh_token=y&expires_in=z&token_type=bearer&type=recovery
+
+        Your app must detect type=recovery in the fragment and display a password reset form to the user.
+    */
+
     // handle password recovery links
     const hash = window.location.hash;
+    console.log('**** #hash', hash);
     if (hash && hash.substr(0,1) === '#') {
+      console.log('hash 1');
       const tokens = hash.substr(1).split('&');
+      console.log('tokens', tokens);
       const entryPayload: any = {};
       tokens.map((token) => {
         const pair = (token + '=').split('=');
         entryPayload[pair[0]] = pair[1];
       });
+      console.log('entryPayload', entryPayload);
+      console.log('entryPayload.type', entryPayload?.type);
       if (entryPayload?.type === 'recovery') { // password recovery link
         router.navigateByUrl(`/resetpassword/${entryPayload.access_token}`);
       }
