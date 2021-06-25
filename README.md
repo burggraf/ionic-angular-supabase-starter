@@ -19,7 +19,7 @@
     - Sign in with Twitter [setup video](https://youtu.be/z1rWsRb4PDw)
     - Sign in with Gitlab [setup video](https://youtu.be/rlyESzCH4Y0)
     - Sign in with Bitbucket [setup video](https://youtu.be/hBYcIKsXdrM)
-    - Sign in with Apple
+    - Sign in with Apple [setup video](https://youtu.be/6I2JEky20ME)
     - Sign in with Azure
 - Database
     - Get / Display List of Records
