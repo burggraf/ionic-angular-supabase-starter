@@ -1,5 +1,8 @@
 # ionic-angular-supabase-starter
 
+A complete working example application using the Ionic Angular framework for the front end and Supbase (powered by PostgreSQL) on the backend.
+
+
 [Live Demo](https://ionic-angular-supabase-starter.vercel.app/)
 
 ## Stack:
@@ -26,3 +29,18 @@
     - Get / Display Detail Record
     - Get / Display Child List
     - Get / Display Child Record
+
+## Getting Started
+
+- Clone or copy this repository
+- Create a project at [https://supabase.io](https://supabase.io)
+    - Get your SUPABASE_URL and SUPABASE_KEY values
+        - Open your project
+        - Click on the `settings` icon at the bottom left
+        - Click on `API` under `Project`
+        - Under `Config` / `URL` copy your SUPABASE_URL which looks like this:  https://<YOUR_UNIQUE_KEY>.supabase.co
+        - Under `API Keys` / `anon` `public` copy your anonymous public SUPABASE_KEY
+    - edit `/src/app/services/supabase.service.ts` with your SUPABASE_URL and SUPABASE_KEY
+- Run `npm install` from the root of your (Ionic) project
+    - Development Server:  `ionic serve`
+    - Build for Production: `ionic build --prod`
