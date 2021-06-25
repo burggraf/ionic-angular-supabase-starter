@@ -33,14 +33,23 @@ A complete working example application using the Ionic Angular framework for the
 ## Getting Started
 
 - Clone or copy this repository
-- Create a project at [https://supabase.io](https://supabase.io)
-    - Get your SUPABASE_URL and SUPABASE_KEY values
+- Create a **Supabase Project** at [https://supabase.io](https://supabase.io)
+    - Get your `SUPABASE_URL` and `SUPABASE_KEY` values
         - Open your project
         - Click on the `settings` icon at the bottom left
         - Click on `API` under `Project`
-        - Under `Config` / `URL` copy your SUPABASE_URL which looks like this:  https://<YOUR_UNIQUE_KEY>.supabase.co
-        - Under `API Keys` / `anon` `public` copy your anonymous public SUPABASE_KEY
-    - edit `/src/app/services/supabase.service.ts` with your SUPABASE_URL and SUPABASE_KEY
+        - Under `Config` / `URL` copy your `SUPABASE_URL` which looks like this:  https://<YOUR_UNIQUE_KEY>.supabase.co
+        - Under `API Keys` / `anon` `public` copy your anonymous public `SUPABASE_KEY`
+- Set up your Supabase keys
+    - Rename `src/enviroments/supabase_sample.ts` to `src/environments/supabase.ts`
+    - Edit `src/environments/supabase.ts` with your `SUPABASE_URL` and `SUPABASE_KEY` values
+- Create the sample data
+    - Open your **Supabase Project**
+    - Click the `SQL` icon at the left
+    - Click `+ New Query` at the top
+    - Paste the contents of each `.sql` script in the `data-setup` folder into the query window and click `RUN` to execute each script
+- Set up Authentication
+    - see `Authentication` under `Features` above for information on configuring various third party providers
 - Run `npm install` from the root of your (Ionic) project
-    - Development Server:  `ionic serve`
+    - Start the Development Server:  `ionic serve`
     - Build for Production: `ionic build --prod`
