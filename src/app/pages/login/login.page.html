@@ -30,6 +30,7 @@
       
         <ion-button strong 
         color="primary" 
+        [disabled]="password.length === 0 || !validateEmail()"
         (click)="signInWithEmail()" 
         expand="block">
         <ion-icon name="log-in" size="large" slot="start"></ion-icon>
@@ -37,6 +38,7 @@
 
         <ion-button strong 
         color="primary" 
+        [disabled]="password.length === 0 || !validateEmail()"
         (click)="signUpWithEmail()" 
         expand="block">
         <ion-icon name="mail" size="large" slot="start"></ion-icon>
@@ -44,6 +46,7 @@
 
         <ion-button strong 
         color="primary" 
+        [disabled]="!validateEmail()"
         (click)="signInWithMagicLink()" 
         expand="block">
         <ion-icon name="color-wand" size="large" slot="start"></ion-icon>
@@ -51,7 +54,7 @@
 
 
       <ion-item lines="none" (click)="resetPassword()">
-        <ion-label class="ion-text-center" style="font-weight: bold; text-decoration: underline;">Reset Password</ion-label>
+        <ion-label [class]="validateEmail() ? 'ion-text-center resetLink' : 'ion-text-center resetLinkDisabled'">Reset Password</ion-label>
       </ion-item>
     
       <div>
@@ -99,7 +102,7 @@
           <ion-icon size="large" name="logo-apple"></ion-icon>
         </ion-button>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="signInWithProvider('azure')">
+        <ion-button disabled (click)="signInWithProvider('azure')">
           <ion-icon size="large" name="logo-microsoft"></ion-icon>
         </ion-button>
       </div>
