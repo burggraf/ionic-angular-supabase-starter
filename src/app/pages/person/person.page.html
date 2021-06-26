@@ -15,28 +15,21 @@
   </ion-header>
 
   <!-- https://fakeface.rest/thumb/view?gender=male&minimum_age=18 -->
-  <div class="ion-padding">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="8">
-          <ion-list>
-            <ion-item><ion-label class="title">ID:</ion-label><ion-label class="data">{{ person?.id }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">Name:</ion-label><ion-label class="data">{{ person?.first_name }} {{ person?.last_name }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">Address:</ion-label><ion-label class="data">{{ person?.address }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">CSZ:</ion-label><ion-label class="data">{{ person?.city }} {{ person?.state }} {{ person?.postal_code }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">Email:</ion-label><ion-label class="data">{{ person?.email }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">Web:</ion-label><ion-label class="data">{{ person?.web_page }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">Avatar:</ion-label><ion-avatar><img [src]="person?.avatar"></ion-avatar><ion-label class="data">{{ person?.avatar }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">Loc:</ion-label><ion-label class="data">{{ person?.latitude }},{{ person?.longitude }}</ion-label></ion-item>
-            <ion-item><ion-label class="title">Date:</ion-label><ion-label class="data">{{ person?.created | date }}</ion-label></ion-item>
-          </ion-list>      
-        </ion-col>
-        <ion-col size="4"><img *ngIf="person" src="https://fakeface.rest/thumb/view?gender={{person?.gender==='M'?'male':'female'}}&minimum_age=18&{{person?.id}}"></ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+  <div class="">
+    <ion-list>
+      <ion-item><ion-label class="title">ID:</ion-label><ion-label class="data">{{ person?.id }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">Name:</ion-label><ion-label class="data">{{ person?.first_name }} {{ person?.last_name }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">Address:</ion-label><ion-label class="data">{{ person?.address }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">CSZ:</ion-label><ion-label class="data">{{ person?.city }} {{ person?.state }} {{ person?.postal_code }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">Email:</ion-label><ion-label class="data">{{ person?.email }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">Web:</ion-label><ion-label class="data">{{ person?.web_page }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">Avatar:</ion-label><ion-avatar><img [src]="person?.avatar"></ion-avatar><ion-label class="data">{{ person?.avatar }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">Loc:</ion-label><ion-label class="data">{{ person?.latitude }},{{ person?.longitude }}</ion-label></ion-item>
+      <ion-item><ion-label class="title">Date:</ion-label><ion-label class="data">{{ person?.created | date }}</ion-label></ion-item>
+    </ion-list>      
+</div>
 
-  <div class="ion-padding">
+  <div class="">
     <ion-list>
       <ion-item color="dark">
         <ion-label><b>Year</b></ion-label>
