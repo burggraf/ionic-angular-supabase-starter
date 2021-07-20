@@ -64,61 +64,159 @@
       <div>
         <strong>Sign in with provider:</strong>
       </div>
-      <div>
-        &nbsp;
-      </div>
-      <div>
-        <ion-button (click)="signInWithProvider('google')">
-          <ion-icon size="large" name="logo-google"></ion-icon>
-        </ion-button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="signInWithProvider('facebook')">
-          <ion-icon size="large" name="logo-facebook"></ion-icon>
-        </ion-button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="signInWithProvider('github')">
-          <ion-icon size="large" name="logo-github"></ion-icon>
-        </ion-button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="signInWithProvider('twitter')">
-          <ion-icon size="large" name="logo-twitter"></ion-icon>
-        </ion-button>
-      </div>
 
-      <div>
-        &nbsp;
-      </div>
-
-      <div>
-        <ion-button (click)="signInWithProvider('bitbucket')">
-          <ion-icon size="large" name="logo-bitbucket"></ion-icon>
-        </ion-button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="signInWithProvider('gitlab')">
-          <ion-icon size="large" name="logo-gitlab"></ion-icon>
-        </ion-button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="signInWithProvider('apple')">
-          <ion-icon size="large" name="logo-apple"></ion-icon>
-        </ion-button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="signInWithProvider('discord')">
-          <ion-icon size="large" name="logo-discord"></ion-icon>
-        </ion-button>
-      </div>
-
-      <div>
-        <ion-button (click)="signInWithProvider('twitch')">
-          <ion-icon size="large" name="logo-twitch"></ion-icon>
-        </ion-button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-      </div>
-
-      <div>
-        &nbsp;
-      </div>
-  
-  </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('google')">
+                    <ion-icon size="large" name="logo-google"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Google</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('facebook')">
+                    <ion-icon size="large" name="logo-facebook"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Facebook</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>            
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('github')">
+                    <ion-icon size="large" name="logo-github"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Github</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('twitter')">
+                    <ion-icon size="large" name="logo-twitter"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Twitter</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('bitbucket')">
+                    <ion-icon size="large" name="logo-bitbucket"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Bitbucket</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>            
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('gitlab')">
+                    <ion-icon size="large" name="logo-gitlab"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>GitLab</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('apple')">
+                    <ion-icon size="large" name="logo-apple"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Apple</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('discord')">
+                    <ion-icon size="large" name="logo-discord"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Discord</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>            
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="signInWithProvider('twitch')">
+                    <ion-icon size="large" name="logo-twitch"></ion-icon>
+                  </ion-button>          
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>Twitch</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
   <div class="ion-padding ion-text-center" *ngIf="user">
     <br>User: &lt;{{ user.email }}&gt;<br><br>
@@ -126,7 +224,7 @@
   </div>
 
 </div>
-
+</div>
 
 
 </ion-content>
