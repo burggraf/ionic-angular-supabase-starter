@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import { 
-  createClient, 
-  SupabaseClient,
-  User,
-  Provider
-} from '@supabase/supabase-js';
+import { createClient, Provider, SupabaseClient, User } from '@supabase/supabase-js';
 import { BehaviorSubject } from 'rxjs';
 import { keys } from 'src/environments/supabase';
 
@@ -60,6 +55,8 @@ export class SupabaseService {
       // provider can be:
       // 'azure','bitbucket','facebook','github','gitlab','google','twitter','apple'
       provider: provider
+    },{
+      redirectTo: window.location.origin
     });
     return { user, session, error };
   }
@@ -72,6 +69,8 @@ export class SupabaseService {
   public sendMagicLink = async (email: string) => {
     const { user, session, error } = await supabase.auth.signIn({
       email: email
+    },{
+      redirectTo: window.location.origin
     });
     return { user, session, error };
   }
